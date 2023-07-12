@@ -3,10 +3,10 @@
 2022년 6월 기준 가장 최신의 스프링 부트와 관련 기술들, 자바 17 기능들, 개발 도구들을 경험할 수 있도록 만들어졌습니다.
 
 # 개발환경
-- Intellij IDEA Ultimate 2022.1.1 ~ 2022.1.3
+- Intellij IDEA Ultimate 2023.1.3
 - Java 17
 - Gradle 7.4.1
-- Spring Boot 2.7.0
+- Spring Boot 3.1.1
 
 # 기술 세부 스택
 - Spring Boot
