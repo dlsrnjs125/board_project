@@ -55,14 +55,14 @@ class ArticleServiceTest {
         SearchType searchType = SearchType.TITLE;
         String searchKeyword = "title";
         Pageable pageable = Pageable.ofSize(20);
-        given(articleRepository.findByTitle(searchKeyword, pageable)).willReturn(Page.empty());
+        given(articleRepository.findByTitleContaining(searchKeyword, pageable)).willReturn(Page.empty());
 
         // When
         Page<ArticleDto> articles = sut.searchArticles(searchType, searchKeyword, pageable);
 
         // Then
         assertThat(articles).isEmpty();
-        then(articleRepository).should().findByTitle(searchKeyword, pageable);
+        then(articleRepository).should().findByTitleContaining(searchKeyword, pageable);
     }
 
     @DisplayName("게시글을 조회하면, 게시글을 반환한다.")
@@ -165,10 +165,10 @@ class ArticleServiceTest {
 
     private UserAccount createUserAccount() {
         return UserAccount.of(
-                "uno",
+                "inkwon",
                 "password",
-                "uno@email.com",
-                "Uno",
+                "inkwon@email.com",
+                "Inkwon",
                 null
         );
     }
@@ -193,23 +193,23 @@ class ArticleServiceTest {
                 content,
                 hashtag,
                 LocalDateTime.now(),
-                "Uno",
+                "Inwkon",
                 LocalDateTime.now(),
-                "Uno");
+                "Inwkon");
     }
 
     private UserAccountDto createUserAccountDto() {
         return UserAccountDto.of(
                 1L,
-                "uno",
+                "inkwon",
                 "password",
-                "uno@mail.com",
-                "Uno",
+                "inkwon@mail.com",
+                "Inwkon",
                 "This is memo",
                 LocalDateTime.now(),
-                "uno",
+                "inwkon",
                 LocalDateTime.now(),
-                "uno"
+                "inwkon"
         );
     }
 
