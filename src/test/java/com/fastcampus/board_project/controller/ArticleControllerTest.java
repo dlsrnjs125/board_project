@@ -323,23 +323,23 @@ class ArticleControllerTest {
                 "content",
                 "#java",
                 LocalDateTime.now(),
-                "uno",
+                "Inkwon",
                 LocalDateTime.now(),
-                "uno"
+                "Inkwon"
         );
     }
 
     private UserAccountDto createUserAccountDto() {
         return UserAccountDto.of(
-                "uno",
+                "Inkwon",
                 "pw",
-                "uno@mail.com",
-                "Uno",
+                "Inkwon@mail.com",
+                "Inkwon",
                 "memo",
                 LocalDateTime.now(),
-                "uno",
+                "Inkwon",
                 LocalDateTime.now(),
-                "uno"
+                "Inkwon"
         );
     }
 
