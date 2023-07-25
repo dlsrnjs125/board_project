@@ -2,7 +2,6 @@ package com.fastcampus.board_project.controller;
 
 import com.fastcampus.board_project.domain.constant.FormStatus;
 import com.fastcampus.board_project.domain.constant.SearchType;
-import com.fastcampus.board_project.dto.UserAccountDto;
 import com.fastcampus.board_project.dto.request.ArticleRequest;
 import com.fastcampus.board_project.dto.response.ArticleResponse;
 import com.fastcampus.board_project.dto.response.ArticleWithCommentsResponse;
@@ -15,7 +14,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -83,7 +81,7 @@ public class ArticleController {
         return "articles/form";
     }
 
-    @PostMapping ("/form")
+    @PostMapping("/form")
     public String postNewArticle(
             @AuthenticationPrincipal BoardPrincipal boardPrincipal,
             ArticleRequest articleRequest
@@ -114,7 +112,7 @@ public class ArticleController {
         return "redirect:/articles/" + articleId;
     }
 
-    @PostMapping ("/{articleId}/delete")
+    @PostMapping("/{articleId}/delete")
     public String deleteArticle(
             @PathVariable Long articleId,
             @AuthenticationPrincipal BoardPrincipal boardPrincipal
