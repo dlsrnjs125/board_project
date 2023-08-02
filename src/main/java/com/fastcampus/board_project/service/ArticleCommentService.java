@@ -1,7 +1,6 @@
 package com.fastcampus.board_project.service;
 
 import com.fastcampus.board_project.domain.Article;
-import com.fastcampus.board_project.domain.ArticleComment;
 import com.fastcampus.board_project.domain.UserAccount;
 import com.fastcampus.board_project.dto.ArticleCommentDto;
 import com.fastcampus.board_project.repository.ArticleCommentRepository;
@@ -40,20 +39,6 @@ public class ArticleCommentService {
             articleCommentRepository.save(dto.toEntity(article, userAccount));
         } catch (EntityNotFoundException e) {
             log.warn("댓글 저장 실패. 댓글 작성에 필요한 정보를 찾을 수 없습니다 - {}", e.getLocalizedMessage());
-        }
-    }
-
-
-    /**
-     * @deprecated 댓글 수정 기능은 클라이언트에서 생각할 점이 많아지기 떄문에, 이번 개발에서는 제공하지 않기로 했다.
-     */
-    @Deprecated
-    public void updateArticleComment(ArticleCommentDto dto) {
-        try {
-            ArticleComment articleComment = articleCommentRepository.getReferenceById(dto.id());
-            if (dto.content() != null) { articleComment.setContent(dto.content()); }
-        } catch (EntityNotFoundException e) {
-            log.warn("댓글 업데이트 실패. 댓글을 찾을 수 없습니다 - dto: {}", dto);
         }
     }
 
