@@ -9,10 +9,9 @@ logging:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/board
+    url: jdbc:postgresql://localhost:5432/board
     username: inkwon
-    password: thisisTestpw!@#
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 1234
   jpa:
     open-in-view: false
     defer-datasource-initialization: true
@@ -21,40 +20,8 @@ spring:
     properties:
       hibernate.format_sql: true
       hibernate.default_batch_fetch_size: 100
-  h2.console.enabled: false
   sql.init.mode: always
   data.rest:
     base-path: /api
     detection-strategy: annotated
   thymeleaf3.decoupled-logic: true
-
----
-spring:
-  profiles.active: local
-
----
-
-  spring:
-    config.activate.on-profile: local
-  config.activate.on-profile: prod
-  datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/board?characterEncoding=UTF-8&serverTimezone=UTC
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
-  jpa:
-    open-in-view: false
-    show-sql: true
-    defer-datasource-initialization: off
-    hibernate.ddl-auto: none
-    properties:
-      hibernate.dialect: org.hibernate.dialect.MariaDBDialect
-      hibernate.format_sql: true
-
-      hibernate.default_batch_fetch_size: 100
-    sql.init.mode: never
-    data.rest:
-      base-path: /api
-      detection-strategy: annotated
-    thymeleaf3:
-      decoupled-logic: true
