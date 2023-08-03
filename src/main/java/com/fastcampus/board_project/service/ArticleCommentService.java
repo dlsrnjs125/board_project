@@ -1,7 +1,6 @@
 package com.fastcampus.board_project.service;
 
 import com.fastcampus.board_project.domain.Article;
-import com.fastcampus.board_project.domain.ArticleComment;
 import com.fastcampus.board_project.domain.UserAccount;
 import com.fastcampus.board_project.dto.ArticleCommentDto;
 import com.fastcampus.board_project.repository.ArticleCommentRepository;
@@ -37,14 +36,7 @@ public class ArticleCommentService {
         try {
             Article article = articleRepository.getReferenceById(dto.articleId());
             UserAccount userAccount = userAccountRepository.getReferenceById(dto.userAccountDto().userId());
-            ArticleComment articleComment = dto.toEntity(article, userAccount);
-
-            if (dto.parentCommentId() != null) {
-                ArticleComment parentComment = articleCommentRepository.getReferenceById(dto.parentCommentId());
-                parentComment.addChildComment(articleComment);
-            } else {
-                articleCommentRepository.save(articleComment);
-            }
+            articleCommentRepository.save(dto.toEntity(article, userAccount));
         } catch (EntityNotFoundException e) {
             log.warn("댓글 저장 실패. 댓글 작성에 필요한 정보를 찾을 수 없습니다 - {}", e.getLocalizedMessage());
         }
