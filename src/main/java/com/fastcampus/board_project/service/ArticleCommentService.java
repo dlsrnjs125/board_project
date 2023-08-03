@@ -6,7 +6,7 @@ import com.fastcampus.board_project.dto.ArticleCommentDto;
 import com.fastcampus.board_project.repository.ArticleCommentRepository;
 import com.fastcampus.board_project.repository.ArticleRepository;
 import com.fastcampus.board_project.repository.UserAccountRepository;
-import javax.persistence.EntityNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
