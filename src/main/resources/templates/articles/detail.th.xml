@@ -14,7 +14,6 @@
                   th:href="@{/articles(searchType=${searchTypeHashtag},searchValue=${hashtag})}"
             />
         </attr>
-
         <attr sel="#article-content/pre" th:text="*{content}" />
 
         <attr sel="#article-buttons" th:if="${#authorization.expression('isAuthenticated()')} and *{userId} == ${#authentication.name}">
