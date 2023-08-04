@@ -306,7 +306,7 @@ class ArticleServiceTest {
     void givenArticleId_whenDeletingArticle_thenDeletesArticle() {
         // Given
         Long articleId = 1L;
-        String userId = "uno";
+        String userId = "inkwon";
         given(articleRepository.getReferenceById(articleId)).willReturn(createArticle());
         willDoNothing().given(articleRepository).deleteByIdAndUserAccount_UserId(articleId, userId);
         willDoNothing().given(articleRepository).flush();
@@ -354,7 +354,7 @@ class ArticleServiceTest {
     }
 
     private UserAccount createUserAccount() {
-        return createUserAccount("uno");
+        return createUserAccount("inkwon");
     }
 
     private UserAccount createUserAccount(String userId) {

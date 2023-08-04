@@ -214,7 +214,7 @@ class JpaRepositoryTest {
     static class TestJpaConfig {
         @Bean
         AuditorAware<String> auditorAware() {
-            return () -> Optional.of("uno");
+            return () -> Optional.of("inkwon");
         }
     }
 
