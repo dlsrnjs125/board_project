@@ -6,6 +6,9 @@ insert into user_account (user_id, user_password, nickname, email, memo, created
 insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at, modified_by) values
 ('inkwon2', '{noop}asdf1234', 'Inkwon2', 'inkwon2@mail.com', 'I am inkwon2.', now(), 'inkwon2', now(), 'inkwon2')
 ;
+insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at, modified_by) values
+('inkwon3', '{noop}asdf1234', 'Inkwon3', 'Inkwon3@mail.com', 'I am Inkwon3.', now(), 'Inkwon3', now(), 'Inkwon3')
+;
 
 -- 123 게시글
 insert into article (user_id, title, content, created_by, modified_by, created_at, modified_at) values
